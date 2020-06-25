@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Manage Program</title>
+	<meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../css/jquery-ui.css">
+	<link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+	<script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+	<script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="../../js/jquery-ui.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+
+</head>
+<header>
+
+	[onload;file='../../includes/header.html';getbody;noerr]
+
+	<script type="text/javascript">
+		var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+	</script>
+</header>
+<body>
+	<div class="container" id="main">
+		<form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" [onshow.show_up;magnet=form]>
+			<h1>Select Program</h1>
+			<div class="panel panel-primary">
+	      		<div class="panel-heading">Enter Program Details</div>
+	      		<div class="panel-body" class="col-xs-12">
+	      			<div class="row col-md-offset-3 col-md-6 alert alert-success" align="left" style="font-size:14px; text-align:center">[onshow.success;magnet=div]</div>
+	      			<div class="row col-md-offset-3 col-md-6 alert alert-danger" align="left" style="font-size:14px; text-align:center">[onshow.msg_err;magnet=div]</div>
+		    		<!-- <p align="left">[onshow.success;magnet=p]</p>
+		    		<p align="left">[onshow.msg_err;magnet=p]</p> -->
+	      			<div class="col-md-12 form-group">
+	                	<label class="col-sm-3 control-label" for="program_id">Program Code </label>
+	            		<div class="col-sm-9">
+                    		<select class="form-control" name="program_id" id="program_id" required>
+                        		<option value="[program.program_id;block=option]" selected>[program.program_name]</option>
+                    		</select> 
+            			</div>
+	            	</div>
+	           		<input id="button" class="btn btn-primary btn-block" style="margin-bottom:5%;margin-right:7%;float:right;width:20%;" type="submit" name="submit_detail" value="Submit">
+	           	</div>
+	        </div>
+	    </form>
+	</div>
+	<div class="container" id="main">
+		<form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" [onshow.show_down;magnet=form]>
+			<h1>Manage Program</h1>
+			<div class="panel panel-primary">
+	      		<div class="panel-heading">Enter Program Details</div>
+	      		<div class="panel-body" class="col-xs-12">
+		    		<div class="col-md-12 form-group">
+	                	<label class="col-sm-3 control-label" for="program_type">Program Type </label>
+	                	<div class="col-sm-9">
+	                		<input name="program_type" value="[update.program_type]" type="text" class="form-control" id="program_code" placeholder="Enter program type" size="40" required/>
+	            		</div>
+	            	</div>
+		    		<div class="col-md-12 form-group">
+	                	<label class="col-sm-3 control-label" for="program_code">Program Code </label>
+	                	<div class="col-sm-9">
+	                		<input name="program_code" value="[update.program_code]" type="text" class="form-control" id="program_code" placeholder="Enter program code" size="40" required/>
+	            		</div>
+	            	</div>
+	            	<div class="col-md-12 form-group">
+	           			<label class="col-sm-3 control-label" for="program_name">Program Name </label>
+	           			<div class="col-sm-9">
+	           				<input name="program_name" value="[update.program_name]" type="text" class="form-control" id="program_name" placeholder="Enter program name" size="40" required/>
+	           			</div>
+	           		</div>
+	           		<div class="col-md-12 form-group">
+	           			<label class="col-sm-3 control-label" for="program_prefix">Program Prefix </label>
+	           			<div class="col-sm-9">
+	           				<input name="program_prefix" value="[update.program_prefix]" type="text" class="form-control" id="program_prefix" placeholder="Enter program prefix (eg. IIT, IEC etc.)" size="40" required/>
+	           			</div>
+	           		</div>
+	           		<div class="col-md-12 form-group">
+	           			<label class="col-sm-3 control-label" for="program_duration">Program Duration </label>
+	           			<div class="col-sm-9">
+	           				<input name="program_duration" value="[update.program_duration]" type="text" class="form-control" id="program_duration" placeholder="Duration of program (years)" size="40" required/>
+	           			</div>
+	           		</div>
+	           		<input id="button" class="btn btn-primary btn-block" style="margin-bottom:5%;margin-right:7%;float:right;width:20%;" type="submit" name="submit_update" value="Submit">
+	           	</div>
+	        </div>
+	    </form>
+	</div>
+	<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+</body>
+</html>
+

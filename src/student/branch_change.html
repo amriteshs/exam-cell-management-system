@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Branch Change Registration</title>
+	<meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+	<link href="../../css/studentreg.css" rel="stylesheet" name="" type="text/css" />
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/transcript1.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' name="" type='text/css'>
+	<link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+	<script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+	<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
+</head>
+<header>
+	<table border="0" cellspacing="0" cellpadding="2" style="width:100%;" bgcolor="#FFF";>
+		<tr valign="top">
+			<td colspan="2" style="height:60px;">[onload;file='../../includes/header.html';getbody;noerr]</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+	</script>
+</header>
+<body>
+	<h1>Branch Change</h1>
+	<div class="container" id="main">
+		<form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Enter Details of Student</div>
+				<div class="panel-body" class="col-xs-12">
+					<div class="row col-md-offset-3 col-md-6 alert alert-success" align="left" style="font-size:14px; text-align:center">[onshow.success;magnet=div]
+					</div>
+					<div class="row col-md-offset-3 col-md-6 alert alert-danger" align="left" style="font-size:14px; text-align:center">[onshow.msg_err;magnet=div]
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label" for="program_id">New Program </label>
+						<div class="col-sm-9">
+							<select class="form-control" name="program_id" id="program_id" required>
+								<option value="[program.program_id;block=option]" selected>[program.program_name]</option>
+							</select> 
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label" for="student_roll_no">Enrollment No. </label>
+						<div class="col-sm-9">
+							<input name="student_roll_no" type="text" class="form-control" id="student_roll_no" placeholder="Enter student's enrollment number" size="40" required/>
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label" for="new_student_roll_no">New Enrollment No. </label>
+						<div class="col-sm-9">
+							<input name="new_student_roll_no" type="text" class="form-control" id="new_student_roll_no" placeholder="Enter student's new enrollment number" size="40" required/>
+						</div>
+					</div>
+					<input id="button" class="btn btn-primary btn-block" style="margin-bottom:5%;margin-right:7%;float:right;width:20%;" name="" type="submit" name="submit" value="Submit">
+				</div>
+			</div>
+		</form>
+	</div>
+	<footer class = "foot">&copy;IIIT-Allahabad</footer>
+</body>
+</html>

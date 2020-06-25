@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Reports/Queries</title>
+		<meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/jquery-ui.css">
+		<link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+		<script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+		<script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+		<script src="../../js/jquery-ui.js" type="text/javascript"></script>
+
+		<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	</head>
+
+	<header>
+		[onload;file='../../includes/header.html';getbody;noerr]
+
+		<script type="text/javascript">
+			var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+		</script>
+	</header>
+
+	<body style="background-color:#F0F8FF">
+		<div class="container" id="main">
+			<h1>Categorywise Distribution of Students</h1>
+			<form class="form-horizontal" role="form" method="POST" action="">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Enter Details</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="alert alert-danger col-md-6 col-md-offset-3" [onshow.msg_err;magnet=div;noerr]>[onshow.msg_err]</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-10 form-group">
+								<label class="col-sm-3 control-label" for="category_id">Category </label>
+								<div class="col-sm-9">
+									<select class="form-control" name="category_id" id="category_id">
+										<option value="" selected>(All)</option>
+										<option value="[category.category_id;block=option]">[category.category_name]</option>
+									</select> 
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-10 form-group">
+								<label class="col-sm-3 control-label" for="program_id">Program </label>
+								<div class="col-sm-9">
+									<select class="form-control" name="program_id" id="program_id">
+										<option value="" selected>(All)</option>
+										<option value="[program.program_id;block=option]">[program.program_name]</option>
+									</select> 
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-10 form-group">
+								<label class="col-sm-3 control-label" for="year_of_joining_1">Year of Joining (Start) </label>
+								<div class="col-sm-9">
+									<input class="form-control" type="number" min="1999" name="year_of_joining_1" id="year_of_joining_1" placeholder="Enter Year of Joining" required/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-10 form-group">
+								<label class="col-sm-3 control-label" for="year_of_joining_2">Year of Joining (End) </label>
+								<div class="col-sm-9">
+									<input class="form-control" type="number" min="1999" name="year_of_joining_2" id="year_of_joining_2" placeholder="Enter Year of Joining"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-10 form-group">
+								<label class="col-sm-3 control-label" for="category_type">Category Type </label>
+								<div class="col-sm-9">
+									<span class="col-md-6">	
+										<input class="" type="radio" name="category_type" id="category_type_1" value="main" checked/><label for="category_type_1" class="cb_label">Main Category</label>
+									</span>
+									<span class="col-md-6">	
+										<input class="" type="radio" name="category_type" id="category_type_2" value="admission"/><label for="category_type_2" class="cb_label">Admission Category</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5"></div>
+							<div class="col-md-2 form-group">
+								<input id="button" name="button" class="btn btn-primary btn-block" style="margin-bottom:5%" type="Submit" value="Generate"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+	</body>
+</html>

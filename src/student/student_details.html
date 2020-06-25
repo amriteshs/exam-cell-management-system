@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registering new Staff</title>
+
+    <meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+    <script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+    <script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../../js/jquery-ui.js" type="text/javascript"></script>
+
+    <link href="../../css/studentreg.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+
+</head>
+<header>
+    <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" bgcolor="#FFF";>
+        <tr valign="top">
+            <td colspan="2" style="height:60px;">[onload;file='../../includes/header.html';getbody;noerr]</td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+    </script>
+</header>
+<body>
+<div class="container" id="main">
+    <h1 style="text-align: center;">Student details</h1>
+    <form class="form-horizontal" role="form" method="POST" action="application_media_offline.php"
+          enctype="multipart/form-data">
+        <div class="alert alert-info" [onshow.success;magnet=div;noerr]>[onshow.success;noerr]</div>
+        <div class="alert alert-danger" [onshow.showError;magnet=div;noerr]>
+            <div>[errorBlock.val;magnet=div;block=div]</div>
+        </div>
+
+        <div class="panel panel-primary" [onshow.showform;magnet=div;noerr]>
+            <div class="panel-heading">Print Student Details</div>
+            <div class="panel-body" class="col-xs-12">
+                <div class="col-md-12 form-group">
+                    <label class="col-sm-4 control-label" >Enrollment Number </label>
+                    <div class="col-sm-8">
+                        <input name="enroll" required type="text" class="form-control" placeholder="Enter enrollment number" size="40" />
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label class="col-sm-4 control-label" for="output_format">Output Format </label>
+                    <div class="col-sm-8">
+                        <span class="col-md-6"> 
+                            <input class="" type="radio" name="output_format" id="output_format_1" value="pdf" checked/><label for="output_format_1" class="cb_label">MPDF</label>
+                        </span>
+                        <span class="col-md-6"> 
+                            <input class="" type="radio" name="output_format" id="output_format_2" value="tex"/><label for="output_format_2" class="cb_label">LaTeX-PDF</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-3 form-group">
+                         <input class="btn btn-primary" formaction="student_print_details.php" type="submit" name="update" value="Details">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+</html>

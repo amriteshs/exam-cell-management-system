@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Get Registration</title>
+	<meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+	<link href="../../css/studentreg.css" rel="stylesheet" name="" type="text/css" />
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../css/transcript1.css" rel = "stylesheet">
+	<link href="../../css/style.css" rel = "stylesheet">
+	<link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+	<script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+	<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
+</head>
+<header>
+	<table border="0" cellspacing="0" cellpadding="2" style="width:100%;" bgcolor="#FFF";>
+		<tr valign="top">
+			<td colspan="2" style="height:60px;">[onload;file='../../includes/header.html';getbody;noerr]</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+	</script>
+</header>
+<body>
+	<h1>Student Registration</h1>
+	<div class="container" id="main">
+		<form class="form-horizontal" role="form" method="POST" enctype = "multipart/form-data">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Enter Registered email</div>
+				<div class="panel-body" class="col-xs-12">
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label" for="registered_email">Regsitered email</label>
+						<div class="col-sm-9">
+							<input name="registered_email" required type="email" class="form-control" id="registered_email" placeholder="Enter the registered email" size="40" />
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<input id="button" class="btn btn-primary col-md-offset-4 col-md-2" formaction="application.php" type="submit" name="submit" value="Edit">
+						<input class="btn btn-primary col-md-offset-1 col-md-2" formaction="application_media.php" type="submit" name="media" value="Media">
+						<input class="btn btn-primary col-md-offset-1 col-md-2" formaction="printform.php" type="submit" name="print" value="Print">
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--<form class="form-horizontal" role="form" method="POST" action="printform.php" enctype = "multipart/form-data">-->
+			<!--<div class="panel panel-primary">-->
+				<!--<div class="panel-heading">Enter Registered email</div>-->
+				<!--<div class="panel-body" class="col-xs-12">-->
+					<!--<div class="col-md-12 form-group">-->
+						<!--<label class="col-sm-3 control-label" for="registered_email">Regsitered email</label>-->
+						<!--<div class="col-sm-9">-->
+							<!--<input name="registered_email" type="text" class="form-control"  placeholder="registered_email" size="40" />-->
+						<!--</div>-->
+					<!--</div>-->
+					<!---->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</form>-->
+	</div>
+	<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+</body>
+</html>

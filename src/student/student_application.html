@@ -1,0 +1,884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="../../css/steps.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" href="../../css/transcript1.css">
+    <script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../../js/jquery-ui.js" type="text/javascript" > </script>
+    <script src="../../js/validator.min.js" type="text/javascript" ></script>
+    <script src="../../js/validator.js" type="text/javascript" ></script>
+    <script src="../../js/script.js" type="text/javascript" ></script>
+    <link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+    <script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+    <link rel="stylesheet" href="../../css/styles.css" type="text/css" />
+</head>
+<header>
+    <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" bgcolor="#FFF";>
+        <tr valign="top">
+            <td colspan="2" style="height:60px;">[onload;file='../../includes/header.html';getbody;noerr]</td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+    </script>
+</header>
+<body>
+    <h1 style="text-align: center;" >Student Registration</h1>
+    <div class="container-fluid">
+        <div class="stepwizard col-md-offset-3">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                    <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                    <p>Personal Details</p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    <p>Parents' Details</p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                    <p>Qualification details</p>
+                </div>
+            </div>
+        </div> 
+        <form role="form" action="" method="post" data-toggle="validator">
+            <div class="row setup-content" id="step-1">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Personal Details</div>
+                            <div class="panel-body">
+                                <div class="row col-md-offset-3 col-md-6 alert alert-success" align="left" style="font-size:14px; text-align:center">[onshow.msg;magnet=div]</div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Program </label>
+                                        <div class="col-sm-9">
+                                            <select name="program_id" class="form-control">
+                                                <option value="[program.program_id;block=option]" selected>[program.program_code] - [program.program_name]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">Campus</label>
+                                        <div class="col-sm-9">
+                                            <select name="campus_id" class="form-control">
+                                                <option value="[campus.campus_id;block=option]" selected>[campus.campus_name;noerr]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >First Name</label>
+                                        <div class="col-sm-9">
+                                            <input required name="first_name" pattern="^[A-z ]{2,}$" type="text"   class="form-control" value="[onshow.first_name;noerr]" id="inputName" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Middle Name</label>
+                                        <div class="col-sm-9">
+                                            <input name="middle_name" pattern="^[A-z ]{2,}$" type="text" class="form-control"  value="[onshow.middle_name;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input  name="last_name" type="text" class="form-control" value="[onshow.last_name;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Full Name (Hindi)</label>
+                                        <div class="col-sm-9">
+                                            <input  name="hindi_name" type="text"  value="[onshow.hindi_name;noerr]" class="form-control" id="fnhindi" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Date of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input required name="dob" type="text" id="datepicker" value="[onshow.dob;noerr]"/>
+                                            <label>(YYYY-MM-DD)</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">Place of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input required name="birth_place" type="text" class="form-control" id="birthplace" value="[onshow.birth_place;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">Category</label>
+                                        <div class="col-sm-9">
+                                            <select required name="category_id" class="form-control" >
+                                            <option class="col-sm-12" value="[category.category_id;block=option]" [onshow;if [category.category_id]==[var.category_id];then 'selected="selected"';else '';noerr]>[category.category_name]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Sub Category </label>
+                                        <div class="col-sm-9">
+                                            <input  name="sub_category" pattern="^[A-z ]{2,}$" value="[onshow.sub_category;noerr]" type="text" class="form-control" id="subcategory" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Religion </label>
+                                        <div class="col-sm-9">
+                                            <select required name="religion_id" class="form-control" >
+                                            <option value="[religion.religion_id;block=option]" [onshow;if [religion.religion_id]==[var.religion_id];then 'selected="selected"';else '';noerr]>[religion.religion_name]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Gender </label>
+                                        <div class="col-sm-9">
+                                            <select required name="gender" id="gender" class="form-control">
+                                            <option value="male" [onshow;if [var.gender]=='male';then 'selected="selected"';else '';noerr]>MALE
+                                            </option>
+                                            <option value="female" [onshow;if [var.gender]=='female';then 'selected="selected"';else '';noerr]>FEMALE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Marital Status </label>
+                                        <div class="col-md-9 col-xs-9">
+                                            <input type="radio" name="marital_status"  value="0" [onshow.marital_status_yes]> Unmarried
+                                            <input type="radio" name="marital_status"  value="1" [onshow.marital_status_no]> Married
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Blood Group </label>
+                                        <div class="col-sm-9">
+                                            <input required name="blood_group" type="text" class="form-control" id="bloodgroup" value="[onshow.blood_group;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Area</label>
+                                        <div class="col-sm-9">
+                                            <input required name="area" type="text" pattern="^[A-z0-9 ]{2,}$" value="[onshow.area;noerr]" class="form-control" id="area" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Nationality </label>
+                                        <div class="col-sm-9">
+                                            <input required name="nationality" type="text" value="[onshow.nationality;noerr]"  class="form-control" id="nationality" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >City </label>
+                                        <div class="col-sm-9">
+                                            <input required name="comm_city" type="text" pattern="^[A-z ]{2,}$" value="[onshow.comm_city;noerr]" class="form-control" id="city" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >State </label>
+                                        <div class="col-sm-9">
+                                            <select required name="comm_state_id" class="form-control" >
+                                                <option value="[state.state_id;block=option]" selected>[state.state_name]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Pin Code </label>
+                                        <div class="col-sm-9">
+                                            <input required name="comm_pincode" type="text" pattern="^[0-9]{6,6}$" value="[onshow.comm_pincode;noerr]" class="form-control" id="pincode" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Phone No. (communication)</label>
+                                        <div class="col-sm-9">
+                                            <input  name="comm_phone_no" type="text" pattern="^[0-9]{10,12}$" class="form-control" value="[onshow.comm_phone_no;noerr]"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Address (communication)</label>
+                                        <div class="col-sm-9">
+                                            <input  name="communication_addr" pattern="^[A-z0-9 ]{2,}$" type="text" value="[onshow.communication_addr;noerr]" class="form-control"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >AADHAAR</label>
+                                        <div class="col-sm-9">
+                                            <input  name="aadhaar" pattern="^[A-z0-9 ]{2,}$" type="text" value="[onshow.aadhaar;noerr]" class="form-control"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label class="col-sm-3 control-label" >Email </label>
+                                        <div class="col-sm-9">
+                                            [onshow.email]
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row setup-content" id="step-2">
+                <div class="col-xs-12 col-md-offset-0">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Parents Details</div>
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Father First Name </label>
+                                        <div class="col-sm-9">
+                                            <input  name="father_first_name" type="text" pattern="^[A-z ]{2,}$" value="[onshow.father_first_name;noerr]"  class="form-control" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Father Last Name </label>
+                                        <div class="col-sm-9">
+                                            <input  name="father_last_name" type="text"  pattern="^[A-z ]{2,}$" value="[onshow.father_last_name;noerr]" class="form-control"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Father Profession </label>
+                                        <div class="col-sm-9">
+                                            <input  name="father_profession" type="text" pattern="^[A-z ]{2,}$" value="[onshow.father_profession;noerr]" class="form-control" id="fprofession" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Father Office Address </label>
+                                        <div class="col-sm-9">
+                                            <input  name="father_office_addr" type="text" pattern="^[A-z0-9 ]{2,}$" value="[onshow.father_office_addr;noerr]" class="form-control" id="foffice" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >City </label>
+                                        <div class="col-sm-9">
+                                            <input  name="city2" type="text" pattern="^[A-z ]{2,}$" value="[onshow.city2;noerr]" class="form-control" id="fcity" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >State </label>
+                                        <div class="col-sm-9">
+                                            <select  name="state_id2" class="form-control" >
+                                                <option value="[state2.state_id;block=option]" selected>[state2.state_name]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Pin Code </label>
+                                        <div class="col-sm-9">
+                                            <input  name="pincode2" type="text" pattern="^[0-9]{6,6}$" class="form-control" value="[onshow.pincode2;noerr]" id="fpincode" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Phone No. (Father)</label>
+                                        <div class="col-sm-9">
+                                            <input  name="phone_no2" type="text" pattern="^[0-9]{10,12}$" value="[onshow.phone_no2;noerr]" class="form-control" id="fphone" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Email </label>
+                                        <div class="col-sm-9">
+                                            <input  name="email2" type="email" class="form-control" value="[onshow.email2;noerr]"  id="femail" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Mother First Name </label>
+                                        <div class="col-sm-9">
+                                            <input  name="mother_first_name" type="text" pattern="^[A-z ]{2,}$" value="[onshow.mother_first_name;noerr]" class="form-control" id="mnam" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Mother Last Name </label>
+                                        <div class="col-sm-9">
+                                            <input  name="mother_last_name" type="text" pattern="^[A-z ]{2,}$" value="[onshow.mother_last_name;noerr]"  class="form-control" id="mname" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Mother Profession </label>
+                                        <div class="col-sm-9">
+                                            <input  name="mother_profession" type="text" pattern="^[A-z ]{2,}$" value="[onshow.mother_profession;noerr]" class="form-control" id="mprofession" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Permanent Address </label>
+                                        <div class="col-sm-9">
+                                            <input  name="permanent_addr" type="text" pattern="^[A-z0-9 ]{2,}$" value="[onshow.permanent_addr;noerr]" class="form-control" id="paddress" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >City </label>
+                                        <div class="col-sm-9">
+                                            <input  name="city3" type="text" pattern="^[A-z ]{2,}$" value="[onshow.city3;noerr]" class="form-control" id="pcity" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >State </label>
+                                        <div class="col-sm-9">
+                                            <select  name="state_id3" class="form-control" >
+                                                <option value="[state3.state_id;block=option]" selected>[state3.state_name]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Pin Code </label>
+                                        <div class="col-sm-9">
+                                            <input  name="pincode3" type="text" pattern="^[0-9]{6,6}$" value="[onshow.pincode3;noerr]" class="form-control" id="ppincode" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Phone No. </label>
+                                        <div class="col-sm-9">
+                                            <input  name="phone_no3" type="text" pattern="^[0-9]{10,12}$" value="[onshow.phone_no3;noerr]" class="form-control" id="pphone" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Email </label>
+                                        <div class="col-sm-9">
+                                            <input  name="email3" type="email" class="form-control" id="pemail" value="[onshow.email3;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Guardian Name </label>
+                                        <div class="col-sm-9">
+                                            <input  name="local_guardian_name" pattern="^[A-z ]{2,}$" type="text" value="[onshow.local_guardian_name;noerr]" class="form-control" id="gname" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Guardian Address </label>
+                                        <div class="col-sm-9">
+                                            <input  name="loca_guardian_addr" type="text" pattern="^[A-z0-9 ]{2,}$" value="[onshow.loca_guardian_addr;noerr]" class="form-control" id="gaddress" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >City </label>
+                                        <div class="col-sm-9">
+                                            <input  name="city4" type="text" pattern="^[A-z ]{2,}$" value="[onshow.city4;noerr]" class="form-control" id="gcity" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label" >Phone No. </label>
+                                        <div class="col-sm-9">
+                                            <input  name="phone_no4" type="text" pattern="^[0-9]{10,12}$" value="[onshow.phone_no4;noerr]" class="form-control"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row setup-content" id="step-3">
+                <div class="col-xs-12 col-md-offset-0">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Qualification Details</div>
+                            <div class="panel-body">
+                                <div class="col-md-12 ">
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label" >Admission Category</label>
+                                        <div class="col-sm-6">
+                                            <select  name="admission_category_id" class="form-control" >
+                                                <option value="[acategoryblk.category_id;block=option]" selected>[acategoryblk.category_name]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group" >
+                                        <label  class="col-sm-6 control-label" >Admit Card </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="admit_card"  value="1" [onshow.admit_card_yes]> Yes
+                                            <input type="radio" name="admit_card"  value="0" [onshow.admit_card_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group" >
+                                        <label  class="col-sm-6 control-label" >JEE Rank Card </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="jee_rank_card"  value="1" [onshow.jee_rank_card_yes]> Yes
+                                            <input type="radio" name="jee_rank_card"  value="0" [onshow.jee_rank_card_no]> No 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 " >
+                                    <div class="col-md-4 form-group"  >
+                                        <label  class="col-sm-6 control-label" >JEE Roll NO.</label>
+                                        <div class="col-sm-6">
+                                            <input  name="jee_roll_no" type="text" class="form-control" value="0" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label" >JEE Rank </label>
+                                        <div class="col-sm-6">
+                                            <input  name="jee_rank_pos" type="text"  class="form-control"  value="0" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">JEE Seat Allotment Letter</label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="jee_seat_allot_letter"  value="1"  [onshow.jee_seat_allot_letter_yes]> Yes
+                                            <input type="radio" name="jee_seat_allot_letter"  value="0" [onshow.jee_seat_allot_letter_no]> No 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 " >
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">10th MarkSheet </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="marsheek_10"  value="1" [onshow.marsheek_10_yes]> Yes
+                                            <input type="radio" name="marsheek_10"  value="0" [onshow.marsheek_10_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">10th Certificate</label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="cert_10" value="1" [onshow.cert_10_yes]> Yes
+                                            <input type="radio" name="cert_10" value="0" [onshow.cert_10_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">10th Percentage</label>
+                                        <div class="col-sm-6">
+                                            <input  name="percentage_10" type="text" class="form-control"   value="[onshow.percentage_10;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">10th Board</label>
+                                        <div class="col-sm-6">
+                                            <select  name="board_id_10" class="form-control" >
+                                                <option class="col-sm-12" value="[board_1.board_id;block=option]" [onshow;if [category.category_id]==[var.board_id_10];then 'selected="selected"';else '';noerr]>[board_1.board_name]</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">12th MarkSheet</label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="marksheet_12"  value="1"[onshow.marksheet_12_yes]> Yes
+                                            <input type="radio" name="marksheet_12"  value="0" [onshow.marksheet_12_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">12th Certificate</label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="cert_12"  value="1" [onshow.cert_12_yes]> Yes
+                                            <input type="radio" name="cert_12"  value="0" [onshow.cert_12_no]> No
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">12th Percentage </label>
+                                        <div class="col-sm-6">
+                                            <input  name="percentage_12" type="text" class="form-control"   value="[onshow.percentage_12;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <label  class="col-sm-3 control-label">12th Board</label>
+                                        <div class="col-sm-9">
+                                            <select  name="board_id_12" class="form-control" >
+                                                <option class="col-sm-12" value="[board_2.board_id;block=option]" [onshow;if [category.category_id]==[var.board_id_12];then 'selected="selected"';else '';noerr]>[board_2.board_name]</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 " >
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">Graduation MarkSheet</label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="marksheet_grad"  value="1" [onshow.marksheet_grad_yes]> Yes
+                                            <input type="radio" name="marksheet_grad"  value="0" [onshow.marksheet_grad_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label" >Graduation Certificate</label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="degree_grad"  value="1" [onshow.degree_grad_yes]> Yes
+                                            <input type="radio" name="degree_grad"  value="0" [onshow.degree_grad_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">Graduation Percentage</label>
+                                        <div class="col-sm-6">
+                                            <input  name="percentage_grad" type="text" class="form-control" value="[onshow.percentage_grad;noerr]"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 " >
+                                    <div class="col-md-12 form-group">
+                                        <label  class="col-sm-3 control-label" >Graduation University </label>
+                                        <div class="col-sm-9">
+                                            <select  name="university_grad_id" class="form-control" >
+                                                <option value="[universityBlk.university_id;block=option]" selected>[universityBlk.university_name]</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 " >
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">PG MarkSheet </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="marksheet_pg"  value="1" [onshow.marksheet_pg_yes]> Yes
+                                            <input type="radio" name="marksheet_pg"  value="0" [onshow.marksheet_pg_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">PG Certificate </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="degree_pg"  value="1" [onshow.degree_pg_yes]> Yes
+                                            <input type="radio" name="degree_pg"  value="0" [onshow.degree_pg_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">PG Percentage </label>
+                                        <div class="col-sm-6">
+                                            <input  name="percentage_pg" type="text" value="[onshow.percentage_pg;noerr]" class="form-control"   size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-12 form-group">
+                                        <label  class="col-sm-3 control-label">PG University </label>
+                                        <div class="col-sm-9">
+                                            <select  name="university_pg_id" class="form-control" >
+                                                <option value="[PGUniversityBlk.university_id;block=option]" selected>[PGUniversityBlk.university_name]</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 " >
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">GATE Score Card </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="gate_score_card"  value="1" [onshow.gate_score_card_yes]> Yes
+                                            <input type="radio" name="gate_score_card"  value="0" [onshow.gate_score_card_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">GATE Score </label>
+                                        <div class="col-sm-6">
+                                            <input name="gate_score" type="text" class="form-control" value="[onshow.gate_score;noerr]"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">GATE Year </label>
+                                        <div class="col-sm-6">
+                                            <input name="gate_year" type="text" class="form-control" value="[onshow.gate_year;noerr]" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 " >
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">CAT Score Card </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="cat_score_card"  value="1" [onshow.cat_score_card_yes]> Yes
+                                            <input type="radio" name="cat_score_card"  value="0" [onshow.cat_score_card_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">CAT Year </label>
+                                        <div class="col-sm-6">
+                                            <input name="cat_year" type="text" class="form-control" value="0"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">CAT Score </label>
+                                        <div class="col-sm-6">
+                                            <input name="cat_score" type="text" class="form-control" value="0"  size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">Transfer Certificate</label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="tc"  value="1" [onshow.tc_yes]> Yes
+                                            <input type="radio" name="tc"  value="0" [onshow.tc_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">Character Certificate </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="character_cert"  value="1" [onshow.character_cert_yes]> Yes
+                                            <input type="radio" name="character_cert"  value="0" [onshow.character_cert_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">Caste Certificate </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="caste_cert"  value="1" [onshow.caste_cert_yes]> Yes
+                                            <input type="radio" name="caste_cert"  value="0" [onshow.caste_cert_no]> No
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-6 control-label">PH Certificate </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="ph_cert"  value="1"> Yes
+                                            <input type="radio" name="ph_cert"  value="0" checked> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-6 control-label">Medical Certificate </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="med_cert"  value="1"> Yes
+                                            <input type="radio" name="med_cert"  value="0" checked> No
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-6 control-label">Anti-Rag. Certificate (Student) </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="anti_rag_st"  value="1" [onshow.anti_rag_st_yes]> Yes
+                                            <input type="radio" name="anti_rag_st"  value="0" [onshow.anti_rag_st_no]> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-6 control-label">Anti-Rag. Certificate (Parent) </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="anti_rag_pr"  value="1" [onshow.anti_rag_st_yes]> Yes
+                                            <input type="radio" name="anti_rag_pr"  value="0" [onshow.anti_rag_st_no]> No
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label">Passport </label>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="passport"  value="1"> Yes
+                                            <input type="radio" name="passport"  value="0" checked> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label" >Passport Number </label>
+                                        <div class="col-sm-6">
+                                            <input name="passport_no" type="text" class="form-control" value="[onshow.passport_no;noerr]"   size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label  class="col-sm-6 control-label" >Validity Period </label>
+                                        <div class="col-sm-6">
+                                            <input name="validity_period" type="text" class="form-control" value="[onshow.validity_period;noerr]"   size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">DASA </label>
+                                        <div class="col-sm-9">
+                                            <input type="radio" name="DASA"  value="1"> NRI
+                                            <input type="radio" name="DASA"  value="2"> SARC
+                                            <input type="radio" name="DASA"  value="3"> CIWG
+                                            <input type="radio" name="DASA"  value="0" checked> No
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">Country </label>
+                                        <div class="col-sm-9">
+                                            <input  name="dasa_country" type="text" class="form-control" value="[onshow.dasa_country;noerr]"   size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">Muslim Minority </label>
+                                        <div class="col-sm-9">
+                                            <input  name="muslim_minority" type="text" class="form-control" value="[onshow.muslim_minority;noerr]"   size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">Other Minority </label>
+                                        <div class="col-sm-9">
+                                            <input  name="other_minority" type="text" class="form-control" value="[onshow.other_minority;noerr]"   size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12  ">
+                                    <div class="col-md-6 form-group ">
+                                        <label  class="col-sm-3 control-label">Remark </label>
+                                        <div class="col-sm-9">
+                                            <input  name="remark" type="text" class="form-control"  value="0" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">Admission Letter </label>
+                                        <div class="col-sm-9">
+                                            <input  name="admission_letter" type="text" class="form-control" value="0"   size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12  ">
+                                    <div class="col-md-6 form-group ">
+                                        <label  class="col-sm-3 control-label">Semester Code </label>
+                                        <div class="col-sm-9">
+                                            <select  name="sem_code" class="form-control" >
+                                                <option value="[sem_code_description.sem_code;block=option]" selected>[sem_code_description.title]</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label  class="col-sm-3 control-label">MCAIP </label>
+                                        <div class="col-sm-9">
+                                            <input  name="mcaip" type="text" value="0" class="form-control" size="40">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success btn-lg pull-right" name="submit" value="Submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--     <div>
+        <table>
+            <tr><td>[errorBlock.val;block=tr]</td></tr>
+        </table>
+        </div>
+        -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var navListItems = $('div.setup-panel div a'),
+                    allWells = $('.setup-content'),
+                    allNextBtn = $('.nextBtn');
+        
+            allWells.hide();
+        
+            navListItems.click(function (e) {
+                e.preventDefault();
+                var $target = $($(this).attr('href')),
+                        $item = $(this);
+        
+                if (!$item.hasClass('disabled')) {
+                    navListItems.removeClass('btn-primary').addClass('btn-default');
+                    $item.addClass('btn-primary');
+                    allWells.hide();
+                    $target.show();
+                    $target.find('input:eq(0)').focus();
+                }
+            });
+        
+            allNextBtn.click(function(){
+                var curStep = $(this).closest(".setup-content"),
+                        curStepBtn = curStep.attr("id"),
+                        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                        curInputs = curStep.find("input[type='text'],input[type='url'],text[text]"),
+                        isValid = true;
+        
+                $(".form-group").removeClass("has-error");
+                for(var i=0; i<curInputs.length; i++){
+                    if (!curInputs[i].validity.valid){
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                    }
+                }
+        
+                if (isValid)
+                    nextStepWizard.removeAttr('disabled').trigger('click');
+            });
+        
+            $('div.setup-panel div a.btn-primary').trigger('click');
+        });
+    </script>
+    <footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+</body>
+</html>

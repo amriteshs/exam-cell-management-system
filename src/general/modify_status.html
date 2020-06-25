@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Modify Status</title>
+		<meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/jquery-ui.css">
+		<link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+		<script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+		<script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+		<script src="../../js/jquery-ui.js" type="text/javascript"></script>
+
+		<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	</head>
+
+	<header>
+
+		[onload;file='../../includes/header.html';getbody;noerr]
+
+		<script type="text/javascript">
+			var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+		</script>
+	</header>
+
+	<body>
+		<div class="container" id="main">
+			<h1>Modify Status</h1>
+			<form class="form-horizontal" role="form" method="POST" action="">
+				<div class="panel panel-primary">
+					<div class="panel-heading">List of Available Status</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-10">
+								<ul class="list-group" style="text-align:left">
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=board_status">Board Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=campus_status">Campus Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=copied_semesters_status">Copied Semesters Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=courses_status">Courses Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=course_registration_status">Course Registration Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=course_structure_status">Course Structure Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=course_type_status">Course Type Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=exam_type_status">Exam Type Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=faculty_status">Faculty Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=faculty_course_status">Faculty Course Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=grades_status">Grades Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=old_branch_status">Old Branch Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=program_status">Program Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=religion_status">Religion Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=results_status">Results Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=sem_code_description_status">Semester Code Description Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=sem_structure_status">Semester Structure Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=staff_status">Staff Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=staff_designation_status">Staff Designation Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=staff_documents_status">Staff Documents Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=state_status">State Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=student_status">Student Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=student_category_status">Student Category Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=student_documents_status">Student Documents Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=temp_results_status">Temp Results Status</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=modify_status&stat=universities_status">Universities Status</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+	</body>
+</html>

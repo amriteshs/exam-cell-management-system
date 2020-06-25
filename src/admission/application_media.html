@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Media</title>
+    <meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+    <script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+    <script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../../js/jquery-ui.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+
+</head>
+<header>
+
+    [onload;file='../../includes/header.html';getbody;noerr]
+
+    <script type="text/javascript">
+        var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+    </script>
+</header>
+<body>
+<div class="container" id="main">
+    <h1 style="text-align: center;">Application Media Submission</h1>
+    <form class="form-horizontal" role="form" method="POST" action="application_media_offline.php"
+          enctype="multipart/form-data">
+        <input type="hidden" name="reg_email" value="[onshow.email;noerr]">
+        <input type="hidden" name="studentID" value="[onshow.studentID;noerr]">
+        <div class="alert alert-info" [onshow.success;magnet=div;noerr]>[onshow.success;noerr]</div>
+        <div class="alert alert-danger" [onshow.showError;magnet=div;noerr]>
+            <div>[errorBlock.val;magnet=div;block=div]</div>
+        </div>
+
+        <div class="panel panel-primary" [onshow.showme;magnet=div;noerr]>
+            <div class="panel-heading">Uploaded Photo and Signature as uploaded on online server</div>
+            <div class="panel-body" class="col-xs-12">
+                <div class="col-md-12 form-group">
+                    <table class="table">
+                        <tr class="row">
+                            <td class="col-md-3"><img src="data:[onshow.photomime];base64,[onshow.photopic]" width="250"
+                                                      height="300" alt="Photo (max size 250KB)"></td>
+                            <td class="col-md-3"><img src="data:[onshow.signmime];base64,[onshow.signpic]" width="250"
+                                                      height="100" alt="Signature (scanned)"></td>
+                        </tr>
+                    </table>
+                    <div>
+                        <input class="btn btn-primary btn-block"
+                               style="margin-bottom:5%;margin-right:7%;float:right;width:20%;" type="submit"
+                               name="accept" formaction="application_media.php" value=" Accept">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Upload passport size photo and scanned signature (jpeg or png)</div>
+            <div class="panel-body" class="col-xs-12">
+                <div class="col-md-12 form-group">
+                    <table class="table">
+                        <tr class="row">
+                            <td class="col-md-3">Photo (max size 250KB)</td>
+                            <td class="col-md-2">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                                <input name="userphoto" type="file">
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td class="col-md-3">Signature (scanned)</td>
+                            <td class="col-md-2">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                                <input name="usersign" type="file">
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                    </div>
+                    <input id="button" class="btn btn-primary btn-block"
+                           style="margin-bottom:5%;margin-right:7%;float:right;width:20%;" type="submit"
+                           formaction="application_media.php" name="finalupload" value=" Upload">
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

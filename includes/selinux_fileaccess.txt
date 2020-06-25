@@ -1,0 +1,51 @@
+semanage fcontext -a -t httpd_sys_rw_content_t '/home/ecell/backup_file(/.*)?'
+
+restorecon -R -v /home/ecell/backup_file
+
+
+http_sys_content_t #read only access
+httpd_sys_rw_content_t #rw access
+httpd_sys_script_exec_t #execute script access
+
+semanage fcontext -a -t httpd_sys_script_exec_t '/var/www/html/test/bck.sh'
+
+
+ls -Z  #to see file's selinux properties
+
+
+#to diable selinux
+vi /etc/selinux/config
+SELINUX=disabled
+
+#to enable
+SELINUX=enforcing
+
+
+
+Sanjeev sir script:
+
+	mkdir /backup/ecell
+  736  mkdir -p /backup/ecell
+  737  ,man restorecon
+  738  man restorecon
+  739  clear
+  740  ls
+  741  cd /backup/
+  742  ls -rlt
+  743  semanage fcontext -a -t httpd_sys_content_rw_t /backup/ecell
+  744  semanage fcontext -a -t httpd_sys_content_rw_t '/backup/ecell'
+  745  man semanage
+  746  chcon -R -t /backup/ecell
+  747  chcon -R -t httpd_sys_content_rw_t /backup/ecell
+  748  ls -Z
+  749  ls -rlt
+  750  chown -R httpd:httpd ecell
+  751  ls -l /var/www/html
+  752  chown -R apache:apache ecell
+  753  ls -rlt
+  754  cd ecell/
+  755  ls
+  756  vi /var/www/html/log.php
+  757  ls -lrt
+  758  history 
+

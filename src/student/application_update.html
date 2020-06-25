@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+    <title>Student Registration</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../../css/steps.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" href="../../css/transcript1.css">
+    <script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../../js/jquery-ui.js" type="text/javascript" > </script>
+    <script src="../../js/validator.min.js" type="text/javascript" ></script>
+    <script src="../../js/validator.js" type="text/javascript" ></script>
+    <script src="../../js/script.js" type="text/javascript" ></script>
+    <link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+    <script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+    <link rel="stylesheet" href="../../css/styles.css" type="text/css" />
+    <style >
+        .alert{
+            text-align: center;
+        }
+    </style>
+</head>
+<header>
+    <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" bgcolor="#FFF";>
+        <tr valign="top">
+            <td colspan="2" style="height:60px;">[onload;file='../../includes/header.html';getbody;noerr]</td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+    </script>
+</header>
+<body>
+<div class="container-fluid" id="st">
+    <h1 style="text-align: center;" >Student Registration</h1>
+    <div class="stepwizard col-md-offset-3" [onshow.showform;magnet=div;noerr]>
+        <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step">
+                <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                <p>Personal Details</p>
+            </div>
+            <div class="stepwizard-step">
+                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                <p>Parents Details</p>
+            </div>
+            <div class="stepwizard-step">
+                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                <p>Qualification details</p>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-danger" [onshow.showerr;magnet=div;noerr]><div>[errBlock.val;block=div;noerr]</div></div>
+    <div class="row col-md-offset-3 col-md-6 alert alert-success" align="left" style="font-size:14px; text-align:center">[onshow.msg;magnet=div]</div>
+    <div class="row col-md-offset-3 col-md-6 alert alert-danger" align="left" style="font-size:14px; text-align:center">[onshow.specialError;magnet=div]</div>
+    <div class="row col-md-offset-3 col-md-6 alert alert-info" align="left" style="font-size:14px; text-align:center">Details of Enrollment no [onshow.enrollment_no;magnet=div].</div>
+    <form role="form" action="" method="post" data-toggle="validator" [onshow.showform;magnet=form;noerr]>
+        <div class="row setup-content" id="step-1">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Personal Details</div>
+                        <div class="panel-body">
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Program </label>
+                                    <div class="col-sm-9">
+                                        <select name="program_id" class="form-control">
+                                            <option value="[program.program_id;block=option]" [onshow;if [program.program_id]==[var.program_id;noerr]; then selected]>[program.program_name]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label">Campus</label>
+                                    <div class="col-sm-9">
+                                        <select name="campus_id" class="form-control">
+                                            <option value="1" selected>IIITA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >First Name</label>
+                                    <div class="col-sm-9">
+                                        <input placeholder='Enter your first name' required name="first_name" pattern="^[A-z ]{1,}$" type="text" title="Can contain only letters and spaces" required class="form-control" value="[onshow.first_name;noerr]" id="inputName" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div  class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Middle Name</label>
+                                    <div class="col-sm-9">
+                                        <input placeholder='Enter you middle name' name="middle_name" pattern="^[A-z ]{1,}$" type="text" class="form-control" title="Can contain only letters and spaces" value="[onshow.middle_name;noerr]" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Last Name</label>
+                                    <div class="col-sm-9">
+                                        <input placeholder='Enter your last name.' required name="last_name" pattern="^[A-z ]{1,}$" type="text" title="Can contain only letters and spaces" class="form-control" value="[onshow.last_name;noerr]" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Full Name (Hindi)</label>
+                                    <div class="col-sm-9">
+                                        <input name="hindi_name" type="text" value="[onshow.hindi_name;noerr]" class="form-control" id="fnhindi" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Date of Birth</label>
+                                    <div class="col-sm-9">
+                                        <input placeholder='Enter your date of birth.' required name="dob" type="text" value="[onshow.dob;noerr]" pattern="^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" title="MM/DD/YYYY" id="datepicker" title="Please enter a date." />
+                                        <label>(MM/DD/YYYY)</label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="col-sm-3 control-label" >Place of Birth</label>
+                                    <div placeholder='Enter your place of birth.' class="col-sm-9">
+                                        <input required name="birth_place" type="text" class="form-control" id="birthplace" pattern="^[A-z]{1}[A-z\-,. ]{0,}$" title="Must start with a letter and contain only letters, spaces, comma, hyphen(-) and fullstop" value="[onshow.birth_place;noerr]" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Category      </label>
+                                    <div class="col-sm-9">
+                                        <select required name="category_id" class="form-control" >
+                                            <option value="[category.category_id;block=option]"  [onshow;if [category.category_id]==[var.category_id;noerr]; then selected]>[category.category_name]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Sub Category </label>
+                                    <div class="col-sm-9">
+                                        <input name="sub_category" pattern="^[A-z]{1}[A-z- ]{0,}$" title="Must begin with a letter. Can contain only letters, spaces and hyphen(-)" value="[onshow.sub_category;noerr]" type="text" class="form-control" id="subcategory" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Religion </label>
+                                    <div class="col-sm-9">
+                                        <select required name="religion_id" class="form-control" >
+                                            <option value="[religion.religion_id;block=option]" [onshow;if [religion.religion_id]==[var.religion_id;noerr]; then selected]>[religion.religion_name]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Gender </label>
+                                    <div class="col-sm-9">
+                                        <select required name="gender" class="form-control" >
+                                            <option value="[genderBlk.val;block=option]" [onshow;if [genderBlk.val]==[var.gender;noerr]; then selected]>[genderBlk.val]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Marital Status </label>
+                                    <div class="col-md-9 col-xs-9">
+                                        <input type="radio" name="marital_status"  value="0" checked> Unmarried
+                                        <input type="radio" name="marital_status"  value="1" > Married
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Blood Group </label>
+                                    <div class="col-sm-9">
+                                        <select required name="blood_group" class="form-control" >
+                                            <option value="[bloodgroupBlk.val;block=option]" [onshow;if [bloodgroupBlk.val]==[var.blood_group;noerr]; then selected]>[bloodgroupBlk.val]</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label class="col-sm-3 control-label">Area</label>
+                                    <div class="col-sm-9">
+                                        <input type="radio" name="area" value="Urban" [onshow;if [var.area;noerr]== Urban; then checked]> Urban
+                                        <input type="radio" name="area" value="Rural" [onshow;if [var.area;noerr]== Rural; then checked]> Rural
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Nationality </label>
+                                    <div class="col-sm-9">
+                                        <input required name="nationality" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" value="[onshow.nationality;noerr]"  class="form-control" id="nationality" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >City </label>
+                                    <div class="col-sm-9">
+                                        <input required name="comm_city" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces." value="[onshow.comm_city;noerr]" class="form-control" id="city" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >State </label>
+                                    <div class="col-sm-9">
+                                        <select required name="comm_state_id" class="form-control" >
+                                            <option value="[state.state_id;block=option]" [onshow;if [state.state_id]==[var.comm_state_id;noerr]; then selected]>[state.state_name]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Pin Code </label>
+                                    <div class="col-sm-9">
+                                        <input required name="comm_pincode" type="text" pattern="^[0-9A-z]{6,10}$" title="Must be six digits only." value="[onshow.comm_pincode;noerr]" class="form-control" id="pincode" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Phone No. (communication)</label>
+                                    <div class="col-sm-9">
+                                        <input required name="comm_phone_no" type="text" pattern="^[0-9]{10,15}$" title="Can contain only digits and must be of 10-15 characters" class="form-control" value="[onshow.comm_phone_no;noerr]"  size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Address (communication)</label>
+                                    <div class="col-sm-9">
+                                        <input required name="communication_addr" pattern="^[A-z0-9-,./ ]{1,}$" type="text" value="[onshow.communication_addr;noerr]" class="form-control">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >AADHAAR</label>
+                                    <div class="col-sm-9">
+                                        <input name="aadhaar" pattern="^[0-9]{12}$" title="Must be 12 digits only" type="text" value="[onshow.aadhaar;noerr]" class="form-control"  size="12">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label class="col-sm-3 control-label" >Email </label>
+                                    <div class="col-sm-9">
+                                        [onshow.email;noerr]
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="row setup-content" id="step-2">
+                    <div class="col-xs-12 col-md-offset-0">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Parents Details</div>
+                                <div class="panel-body">
+                                    
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Father's First Name </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter father's first name"required name="father_first_name" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" value="[onshow.father_first_name;noerr]" class="form-control" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Father's Last Name </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter father's last name" required name="father_last_name" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" value="[onshow.father_last_name;noerr]" class="form-control" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Profession </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter father's profession" name="father_profession" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" value="[onshow.father_profession;noerr]" class="form-control" id="fprofession" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Office Address </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter father's office address" name="father_office_addr" title="Address can contain letters, digits, commas(,), dot(.) and hyphens(-) only." type="text" pattern="^[A-z0-9-/,. ]{2,}$" value="[onshow.father_office_addr;noerr]" class="form-control" id="foffice">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">City </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Father's city" name="city2" title="City can contain letters only" type="text" pattern="^[A-z ]{2,}$" value="[onshow.city2;noerr]" class="form-control" id="fcity" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">State </label>
+                                            <div class="col-sm-9">
+                                                <select name="state_id2" class="form-control">
+                                                    <option value="[state2.state_id;block=option]" [onshow;if [state2.state_id]==[var.state_id2;noerr]; then selected]>
+                                                        [state2.state_name]
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Pin Code </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter father's pincode"name="pincode2" type="text" pattern="^[0-9A-z]{6,10}$" title="Pin must be 6 characters long." class="form-control" value="[onshow.pincode2;noerr]" id="fpincode" size="6">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Phone No.</label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter father's phone number" name="phone_no2" type="text" pattern="^[0-9]{10,15}$" title="Must contain only digits and must be 10-15 digits long." value="[onshow.phone_no2;noerr]" class="form-control" id="fphone" size="15">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Email </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter father's email id" name="email2" type="email" class="form-control" value="[onshow.email2;noerr]" id="femail" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Mother's First Name </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter Mother's first name" required name="mother_first_name" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" value="[onshow.mother_first_name;noerr]" class="form-control" id="mnam">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Mother's Last Name </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter mother's last name" required name="mother_last_name" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" value="[onshow.mother_last_name;noerr]" class="form-control" id="mname">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Profession </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter mother's profession"name="mother_profession" type="text" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" value="[onshow.mother_profession;noerr]" class="form-control" id="mprofession">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Permanent Address </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter address "name="permanent_addr" title="Address can contain letters, digits, comma, dot, hyphen(-) and ' only." type="text" pattern="^[A-z0-9-/,. ]{2,}$" value="[onshow.permanent_addr;noerr]" class="form-control" id="paddress">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">City </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter city " name="city3" title="City can contain letters only" type="text" pattern="^[A-z ]{2,}$" value="[onshow.city3;noerr]" class="form-control" id="pcity" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">State </label>
+                                            <div class="col-sm-9">
+                                                <select name="state_id3" class="form-control">
+                                                    <option value="[state3.state_id;block=option]" [onshow;if [state3.state_id]==[var.state_id3;noerr]; then selected]>
+                                                        [state3.state_name]
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Pin Code </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter pin-code" name="pincode3" type="text" pattern="^[0-9A-z]{6,10}$" title="Must contain 6 digits" value="[onshow.pincode3;noerr]" class="form-control" id="ppincode" size="6">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Phone No. </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter mother's phone number" name="phone_no3" type="text" title="Must contain digits only and must be 10-15 digits long" pattern="^[0-9]{10,15}$" value="[onshow.phone_no3;noerr]" class="form-control" id="pphone" size="15">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Email </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter mother's email id" name="email3" type="email" class="form-control" id="pemail" value="[onshow.email3;noerr]" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="alert alert-info">Guardian Details</div>-->
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Guardian Name </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter local guardian's name (optional)" name="local_guardian_name" pattern="^[A-z ]{1,}$" title="Can contain only letters and spaces" type="text" value="[onshow.local_guardian_name;noerr]" class="form-control" id="gname" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Address </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter local guardian's address (optional)" name="loca_guardian_addr" title="Address can contain letters, digits, comma, dot, hyphen(-) and ' only." type="text" pattern="^[A-z0-9-/,. ]{2,}$" value="[onshow.loca_guardian_addr;noerr]" class="form-control" id="gaddress">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">City </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter local guardian's city (optional)" name="city4" type="text" pattern="^[A-z ]{2,}$" value="[onshow.city4;noerr]" class="form-control" id="gcity" size="40">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="col-sm-3 control-label">Phone No. </label>
+                                            <div class="col-sm-9">
+                                                <input placeholder="Enter local guardian's phone number (optional)" title="Must contain digits only and must be 10-15 digits long" name="phone_no4" type="text" pattern="^[0-9]{10,15}$" value="[onshow.phone_no4;noerr]" class="form-control" size="15">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div class="row setup-content" id="step-3">
+            <div class="col-xs-12 col-md-offset-0">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Qualification Details</div>
+                        <div class="panel-body">
+                            <div class="col-md-12 ">
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >Admission Category</label>
+                                    <div class="col-sm-6">
+                                        <select required name="admission_category_id" class="form-control" >
+                                            <option value="[acategoryblk.category_id;block=option]" [onshow;if [acategoryblk.category_id]==[var.category_id;noerr]; then selected] >[acategoryblk.category_name]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group" [onshow.jeeOptions;magnet=div;noerr] >
+                                    <label  class="col-sm-6 control-label" >Admit Card </label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="admit_card"  value="1" [onshow;if [var.admit_card;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="admit_card"  value="0" [onshow;if [var.admit_card;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group" [onshow.jeeOptions;magnet=div;noerr] >
+                                    <label  class="col-sm-6 control-label" >JEE Rank Card </label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="jee_rank_card"  value="1" [onshow;if [var.jee_rank_card;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="jee_rank_card"  value="0" [onshow;if [var.jee_rank_card;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 " [onshow.jeeOptions;magnet=div;noerr] >
+                                <div class="col-md-4 form-group"  >
+                                    <label  class="col-sm-6 control-label" >JEE Roll NO.</label>
+                                    <div class="col-sm-6">
+                                        <input  name="jee_roll_no" type="text" class="form-control" value="[onshow.jee_roll_no;noerr]" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >JEE Rank </label>
+                                    <div class="col-sm-6">
+                                        <input  name="jee_rank_pos" type="text"  pattern="^[0-9]{1,}$" title="Only digits are allowed" class="form-control"  value="[onshow.jee_rank_pos;noerr]" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >JEE Seat Allotment Letter</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="jee_seat_allot_letter"  value="1" [onshow;if [var.jee_seat_allot_letter;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="jee_seat_allot_letter"  value="0" [onshow;if [var.jee_seat_allot_letter;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 " >
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >10th MarkSheet </label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="marsheek_10"  value="1" [onshow;if [var.marsheek_10;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="marsheek_10"  value="0" [onshow;if [var.marsheek_10;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >10th Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="cert_10"  value="1" [onshow;if [var.cert_10;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="cert_10"  value="0" [onshow;if [var.cert_10;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >10th Percentage/CGPA</label>
+                                    <div class="col-sm-6">
+                                        <input required name="percentage_10" title="Can contain only digits and dots(.)" type="text" pattern="[0-9]{1,}[.]?[0-9]{0,}" class="form-control" value="[onshow.percentage_10;noerr]" size="7">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >12th MarkSheet</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="marksheet_12"  value="1" [onshow;if [var.marksheet_12;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="marksheet_12"  value="0" [onshow;if [var.marksheet_12;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >12th Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="cert_12"  value="1" [onshow;if [var.cert_12;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="cert_12"  value="0" [onshow;if [var.cert_12;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >12th Percentage </label>
+                                    <div class="col-sm-6">
+                                        <input required name="percentage_12" title = "Can contain only digits and dots(.)" type="text" class="form-control" pattern="[0-9]{1,}[.]?[0-9]{0,}" value="[onshow.percentage_12;noerr]" size="7">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >10th Board</label>
+                                    <div class="col-sm-9">
+                                        <select name="board_id_10" class="form-control" >
+                                            <option value="[board10Blk.board_id;block=option]" [onshow;if [board10Blk.board_id]==[var.board_id_10;noerr]; then selected]>[board10Blk.board_name]</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >12th Board</label>
+                                    <div class="col-sm-9">
+                                        <select name="board_id_12" class="form-control" >
+                                            <option value="[board12Blk.board_id;block=option]" [onshow;if [board12Blk.board_id]==[var.board_id_12;noerr]; then selected]>[board12Blk.board_name]</option>
+                                        </select>
+                                    </div>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 " [onshow.ugOptions;magnet=div;noerr]>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >Graduation MarkSheet</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="marksheet_grad"  value="1" [onshow;if [var.marksheet_grad;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="marksheet_grad"  value="0" [onshow;if [var.marksheet_grad;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >Graduation Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="degree_grad"  value="1" [onshow;if [var.degree_grad;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="degree_grad"  value="0" [onshow;if [var.degree_grad;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >Graduation Percentage/CGPA</label>
+                                    <div class="col-sm-6">
+                                        <input required name="percentage_grad" type="text" title="Can contain only digits and dot(.)." pattern="[0-9]{1,}[.]?[0-9]{0,}" class="form-control" value="[onshow.percentage_grad;noerr]"  size="7">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 " [onshow.ugOptions;magnet=div;noerr]>
+                                <div class="col-md-12 form-group">
+                                    <label  class="col-sm-3 control-label" >Graduation University </label>
+                                    <div class="col-sm-9">
+                                        <select name="university_grad_id" class="form-control" >
+                                            <option value="[universityBlk.university_id;block=option]" [onshow;if [universityBlk.university_id]==[var.university_grad_id;noerr]; then selected]>[universityBlk.university_name]</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 " [onshow.pgOptions;magnet=div;noerr]>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >PG MarkSheet</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="marksheet_pg"  value="1" [onshow;if [var.marksheet_pg;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="marksheet_pg"  value="0" [onshow;if [var.marksheet_pg;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >PG Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="degree_pg"  value="1" [onshow;if [var.degree_pg;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="degree_pg"  value="0" [onshow;if [var.degree_pg;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >PG Percentage/CGPA</label>
+                                    <div class="col-sm-6">
+                                        <input required name="percentage_pg" type="text" value="[onshow.percentage_pg;noerr]" title="Can contain only digits and dot(.)." pattern="[0-9]{1,}[.]?[0-9]{0,}" class="form-control"   size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 " [onshow.pgOptions;magnet=div;noerr]>
+                                <div class="col-md-12 form-group">
+                                    <label  class="col-sm-3 control-label" >PG University</label>
+                                    <div class="col-sm-9">
+                                        <select name="university_pg_id" class="form-control" >
+                                            <option value="[PGUniversityBlk.university_id;block=option]" [onshow;if [PGUniversityBlk.university_id]==[var.university_pg_id;noerr]; then selected]>[PGUniversityBlk.university_name]</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 "  [onshow.gateOptions;magnet=div;noerr]>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >GATE Score Card</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="gate_score_card"  value="1" [onshow;if [var.gate_score_card;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="gate_score_card"  value="0" [onshow;if [var.gate_score_card;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >GATE Score</label>
+                                    <div class="col-sm-6">
+                                        <input  name="gate_score" type="text" pattern="[0-9]{1,}[.]?[0-9]{0,}" class="form-control" value="[onshow.gate_score;noerr]"  size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >GATE Year</label>
+                                    <div class="col-sm-6">
+                                        <input name="gate_year" class="form-control" value="[onshow.gate_year;noerr]" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 " [onshow.catOptions;magnet=div;noerr]>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >CAT Score Card</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="cat_score_card"  value="1" [onshow;if [var.cat_score_card;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="cat_score_card"  value="0" [onshow;if [var.cat_score_card;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >CAT Year</label>
+                                    <div class="col-sm-6">
+                                        <input name="cat_year" type="text" class="form-control" value="0"  size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >CAT Score</label>
+                                    <div class="col-sm-6">
+                                        <input name="cat_score" type="text" class="form-control" value="0"  size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">Transfer Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="transfer_cert"  value="1" [onshow;if [var.transfer_cert;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="transfer_cert"  value="0" [onshow;if [var.transfer_cert;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">Character Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="character_cert"  value="1" [onshow;if [var.character_cert;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="character_cert"  value="0" [onshow;if [var.character_cert;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">Caste Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="caste_cert"  value="1" [onshow;if [var.caste_cert;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="caste_cert"  value="0" [onshow;if [var.caste_cert;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">PH Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="ph_cert"  value="1" [onshow;if [var.ph_cert;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="ph_cert"  value="0" [onshow;if [var.ph_cert;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">Medical Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="med_cert"  value="1" [onshow;if [var.med_cert;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="med_cert"  value="0" [onshow;if [var.med_cert;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">Anti-Rag. Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="anti_rag_st"  value="1" [onshow;if [var.anti_rag_st;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="anti_rag_st"  value="0" [onshow;if [var.anti_rag_st;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="col-md-12 ">
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">Migration Certificate</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="migration_cert"  value="1" [onshow;if [var.migration_cert;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="migration_cert"  value="0" [onshow;if [var.migration_cert;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">MCAIP</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="mcaip"  value="1" [onshow;if [var.mcaip;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="mcaip"  value="0" [onshow;if [var.mcaip;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label">Passport</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name="passport"  value="1" [onshow;if [var.passport;noerr]==1; then checked]> Yes
+                                        <input type="radio" name="passport"  value="0" [onshow;if [var.passport;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >Passport Number</label>
+                                    <div class="col-sm-6">
+                                        <input name="passport_no" type="text" class="form-control" value="[onshow.passport_no;noerr]"   size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label  class="col-sm-6 control-label" >Passport Validity</label>
+                                    <div class="col-sm-6">
+                                        <input name="validity_period" type="number" pattern="[0-9]{4}" min="2000" class="form-control" value="[onshow.validity_period;noerr]">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label">DASA</label>
+                                    <div class="col-sm-9">
+                                        <input type="radio" name="DASA"  value="1" [onshow;if [var.DASA;noerr]==1; then checked]> NRI
+                                        <input type="radio" name="DASA"  value="2" [onshow;if [var.DASA;noerr]==2; then checked]> SAARC
+                                        <input type="radio" name="DASA"  value="3" [onshow;if [var.DASA;noerr]==3; then checked]> CIWG
+                                        <input type="radio" name="DASA"  value="0" [onshow;if [var.DASA;noerr]==0; then checked]> No
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Country</label>
+                                    <div class="col-sm-9">
+                                        <input required name="dasa_country" type="text" pattern="^[A-z ]{1,}$" title="Only letters and spaces are allowed" class="form-control" value="[onshow.dasa_country;noerr]"   size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12  ">
+                                <div class="col-md-6 form-group ">
+                                    <label  class="col-sm-3 control-label" >Remark</label>
+                                    <div class="col-sm-9">
+                                        <input name="remark" type="text" class="form-control" value="[onshow.remark;noerr]" >
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label" >Admission Letter</label>
+                                    <div class="col-sm-9">
+                                        <input  name="admission_letter" type="text" class="form-control" value="No"   size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label  class="col-sm-3 control-label">Semester Code </label>
+                                    <div class="col-sm-9">
+                                        <select required name="sem_code" class="form-control" >
+                                            <option value="[sem_code_description.sem_code_id;block=option]" selected>[sem_code_description.title]</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="col-sm-3 control-label">Enrollment No</label>
+                                    <div class="col-sm-9">
+                                        <input  name="enrollment_no" type="number" class="form-control" value="[onshow.enrollment_no;noerr]" size="40">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-success btn-lg pull-right" name="submit" value="Submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>[onshow.error;noerr] </p>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var navListItems = $('div.setup-panel div a'),
+                allWells = $('.setup-content'),
+                allNextBtn = $('.nextBtn');
+
+        allWells.hide();
+
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                    $item = $(this);
+
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('btn-primary').addClass('btn-default');
+                $item.addClass('btn-primary');
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
+            }
+        });
+
+        allNextBtn.click(function(){
+            var curStep = $(this).closest(".setup-content"),
+                    curStepBtn = curStep.attr("id"),
+                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                    curInputs = curStep.find("input[type='text'],input[type='url'],text[text]"),
+                    isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for(var i=0; i<curInputs.length; i++){
+                if (!curInputs[i].validity.valid){
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid)
+                nextStepWizard.removeAttr('disabled').trigger('click');
+        });
+
+        $('div.setup-panel div a.btn-primary').trigger('click');
+    });
+</script>
+<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+</body>
+</html>

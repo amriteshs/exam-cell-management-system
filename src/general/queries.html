@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Reports/Queries</title>
+		<meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/jquery-ui.css">
+		<link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+		<script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+		<script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+		<script src="../../js/jquery-ui.js" type="text/javascript"></script>
+
+		<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	</head>
+
+	<header>
+		[onload;file='../../includes/header.html';getbody;noerr]
+
+		<script type="text/javascript">
+			var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+		</script>
+	</header>
+
+	<body style="background-color:#F0F8FF">
+		<div class="container" id="main">
+			<h1>List of Queries</h1>
+			<form class="form-horizontal" role="form" method="POST" action="">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Queries</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-10">
+								<ul class="list-group" style="text-align:left">
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=students_category">Categorywise Distribution of Students</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=students_program_dropouts">Programwise Distribution of Dropout Students</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=students_active_dropout">Categorywise Distribution of Active and Dropout Students</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=students_program_level">Program Level-wise Distribution of Students</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=students_dasa">Countrywise Distribution of DASA Students</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=foreign_student_enrollment">Foreign Student Enrollment</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=students_state_board">Distribution of Students by State, Board and Percentage (10th and 12th)</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=students_toppers_list">List of Toppers by Program and Semester</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=regular_programme_details">Regular Programme Details</a></li>
+									<li class="list-group-item" style="font-size:130%;padding-top:5px;padding-bottom:5px"><a href="?page=queries&query=semester_result_summary">Semester Result Summary</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+	</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Grade Insertion</title>
+	<meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../css/jquery-ui.css">
+	<link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+	<script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+	<script src="../../js/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="../../js/jquery-ui.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+
+</head>
+<header>
+
+	[onload;file='../../includes/header.html';getbody;noerr]
+
+	<script type="text/javascript">
+		var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+	</script>
+</header>
+<body>
+	<h1>Grade Insertion</h1>
+	<div class="container" id="main">
+
+		<div class="panel panel-primary" [onshow.show_first_form;magnet=div]>
+			<div class="panel-heading">Enter Student Info</div>
+			<div class="panel-body" class="col-xs-12">
+				<div class="row col-md-offset-3 col-md-6 alert alert-success" align="left" style="font-size:14px; text-align:center">[onshow.success;magnet=div]</div>
+				<div class="row col-md-offset-3 col-md-6 alert alert-danger" align="left" style="font-size:14px;text-align:center">[onshow.msg;magnet=div]</div>
+				<form class="form-horizontal" role="form" method="POST" enctype = "multipart/form-data">
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label" for="student_roll_no">Student Enrollment No </label>
+						<div class="col-sm-9">
+							<input required name="student_roll_no" id="student_roll_no" type="text" class="form-control" style="text-transform: uppercase;" id="year" placeholder="Enter student enrollment no" size="40">
+						</div>
+					</div>	
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label" for="year">Year </label>
+						<div class="col-sm-9">
+							<input name="year" type="number" min="1990" class="form-control" id="year" placeholder="Enter year" required size="40" >
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label" for="semester_code">Semester Code </label>
+						<div class="col-sm-9">
+							<select class="form-control" name="semester_code" id="semester_code">
+								<option value="[sem_code_description.sem_code_id;block=option]" selected>[sem_code_description.title]</option>
+							</select> 
+						</div>
+					</div>
+					<input id="button" class="btn btn-primary btn-block" style="margin-bottom:5%;margin-right:7%;float:right;width:20%;" type="submit" name="submit_1" value="Submit">
+				</form>
+				
+			</div>
+		</div>
+
+		<div class="panel panel-primary" [onshow.show_second_form;magnet=div]>
+			<div class="panel-heading">Enter Grades</div>
+			<div class="panel-body" class="col-xs-12">
+				<form class="form-horizontal" role="form" method="POST" enctype = "multipart/form-data">	
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.0;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code_t1">[courseBlk_0.course_name] ([courseBlk_0.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.0;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_0.course_id]" id="semester_code_t1" required>
+								<option value="[grades_0_1.grade_id;block=option]" selected>[grades_0_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.0;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.0;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_0.course_id]" id="semester_code_l1" required>
+								<option value="[grades_0_2.grade_id;block=option]" selected>[grades_0_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.1;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_1.course_name] ([courseBlk_1.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.1;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_1.course_id]" id="semester_code" required>
+								<option value="[grades_1_1.grade_id;block=option]" selected>[grades_1_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.1;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.1;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_1.course_id]" id="semester_code" required>
+								<option value="[grades_1_2.grade_id;block=option]" selected>[grades_1_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.2;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_2.course_name] ([courseBlk_2.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.2;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_2.course_id]" id="semester_code" required>
+								<option value="[grades_2_1.grade_id;block=option]" selected>[grades_2_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.2;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.2;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_2.course_id]" id="semester_code" required>
+								<option value="[grades_2_2.grade_id;block=option]" selected>[grades_2_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.3;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_3.course_name] ([courseBlk_3.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.3;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_3.course_id]" id="semester_code" required>
+								<option value="[grades_3_1.grade_id;block=option]" selected>[grades_3_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.3;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.3;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_3.course_id]" id="semester_code" required>
+								<option value="[grades_3_2.grade_id;block=option]" selected>[grades_3_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.4;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_4.course_name] ([courseBlk_4.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.4;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_4.course_id]" id="semester_code" required>
+								<option value="[grades_4_1.grade_id;block=option]" selected>[grades_4_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.4;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.4;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_4.course_id]" id="semester_code" required>
+								<option value="[grades_4_2.grade_id;block=option]" selected>[grades_4_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.5;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_5.course_name] ([courseBlk_5.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.5;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_5.course_id]" id="semester_code" required>
+								<option value="[grades_5_1.grade_id;block=option]" selected>[grades_5_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.5;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.5;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_5.course_id]" id="semester_code" required>
+								<option value="[grades_5_2.grade_id;block=option]" selected>[grades_5_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.6;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_6.course_name] ([courseBlk_6.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.6;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_6.course_id]" id="semester_code" required>
+								<option value="[grades_6_1.grade_id;block=option]" selected>[grades_6_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.6;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.6;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_6.course_id]" id="semester_code" required>
+								<option value="[grades_6_2.grade_id;block=option]" selected>[grades_6_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.7;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_7.course_name] ([courseBlk_7.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.7;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_7.course_id]" id="semester_code" required>
+								<option value="[grades_7_1.grade_id;block=option]" selected>[grades_7_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select> 
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.7;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.7;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_7.course_id]" id="semester_code" required>
+								<option value="[grades_7_2.grade_id;block=option]" selected>[grades_7_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.8;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_8.course_name] ([courseBlk_8.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.8;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_8.course_id]" id="semester_code" required>
+								<option value="[grades_8_1.grade_id;block=option]" selected>[grades_8_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select>
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.8;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.8;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_8.course_id]" id="semester_code" required>
+								<option value="[grades_8_2.grade_id;block=option]" selected>[grades_8_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group" [onshow.courseBlk.9;magnet=div;noerr]>
+						<label class="col-sm-4 control-label" for="semester_code">[courseBlk_9.course_name] ([courseBlk_9.course_code])</label>
+						<div class="col-sm-4" [onshow.theory_display.9;magnet=div;noerr]>
+							<select class="form-control" name="T_[courseBlk_9.course_id]" id="semester_code" required>
+								<option value="[grades_9_1.grade_id;block=option]" selected>[grades_9_1.grade]</option>
+								<option value="" selected disabled>Choose theory grade</option>
+							</select>
+						</div>
+						<div class="col-sm-4" [onshow.offset_display.9;magnet=div;noerr]></div>
+						<div class="col-sm-4" [onshow.lab_display.9;magnet=div;noerr]>
+							<select class="form-control" name="L_[courseBlk_9.course_id]" id="semester_code" required>
+								<option value="[grades_9_2.grade_id;block=option]" selected>[grades_9_2.grade]</option>
+								<option value="" selected disabled>Choose lab grade</option>
+							</select> 
+						</div>
+					</div>
+
+					<input id="button" class="btn btn-primary btn-block" style="margin-bottom:5%;margin-right:7%;float:right;width:20%;" type="submit" name="submit_2" value="Submit">
+				</form>
+			</div>		    
+		</div>
+
+
+	</div>
+
+	<footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Student List</title>
+    <meta http-equiv="Content name=""-Type" content="text/html; charset=utf-8" />
+    <link href="../../css/studentreg.css" rel="stylesheet" name="" type="text/css" />
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/transcript1.css">
+    <link rel="stylesheet" href="../../css/tinydropdown/tinydropdown.css" type="text/css" />
+    <script type="text/javascript" src="../../css/tinydropdown/tinydropdown.js"></script>
+    <link rel="stylesheet" href="../../css/styles.css" type="text/css" />
+</head>
+
+<style>
+    table {
+        background-color: #fff;
+    }
+    .table-head {
+        background-color: #428bca;
+    }
+</style>
+
+<header>
+    <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" bgcolor="#FFF";>
+        <tr valign="top">
+            <td colspan="2" style="height:40px;">[onload;file='../../includes/header.html';getbody;noerr]</td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        var dropdown=new TINY.dropdown.init("dropdown", {id:'menu', active:'menuhover'});
+    </script>
+</header>
+<body>
+    <h1>Student List</h1>
+    <div class="col-md-12" id="main">
+        <table class="table table-striped table-bordered" align="center" style=" box-sizing: border-box;">
+            <tr class="table-head">
+                <th>Student Id</th>                    
+                <th>Program Code</th>
+                <th>Enrollment No</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Date of Admission</th>
+            </tr>
+            <tr>
+                <td align="left">[result.student_id;block=tr]</td>                      
+                <td align="left">[result.program_code]</td>
+                <td align="left">[result.enrollment_no]</td>
+                <td align="left">[result.first_name]</td>
+                <td align="left">[result.middle_name]</td>
+                <td align="left">[result.last_name]</td>
+                <td align="left">[result.date_of_admission]</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer class = "foot">[onload;file='../../includes/footer.html';getbody;noerr]</footer>
+</body>
+</html>

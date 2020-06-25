@@ -1,0 +1,4 @@
+
+MariaDB [offline]> ALTER TABLE `sem_cancel` ADD `status_value_id` INT(11) NOT NULL AFTER `sem_code`;
+
+MariaDB [offline]> ALTER TABLE sem_cancel ADD CONSTRAINT fk_sem_cancel_status FOREIGN KEY (status_value_id) REFERENCES status_value(status_value_id);
